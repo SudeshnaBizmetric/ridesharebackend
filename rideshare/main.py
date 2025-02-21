@@ -39,11 +39,12 @@ UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  #frontend URL
+    allow_origins=["https://lively-hill-01625d700.6.azurestaticapps.net"],  # Your frontend URL
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods
+    allow_methods=["*"],  # Allow all HTTP methods (POST, GET, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
 def hashed_password(password:str)->str:
    return password_crypt.hash(password)
 
